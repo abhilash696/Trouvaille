@@ -1,0 +1,113 @@
+
+<% layout('/layouts/boilerplate.ejs') -%>
+
+<div class="filters">
+<a class="filter-link" href="/listing/filter/Trending">
+	<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-fire"></i></div>
+		<p>Trending</p>
+	</div>
+</a>
+<a class="filter-link" href="/listing/filter/Tropical">
+	<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+		<p>Tropical</p>
+	</div>
+</a>
+<a class="filter-link" href="/listing/filter/Mountain">
+	<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-mountain"></i></div>
+		<p>Mountains</p>
+	</div>
+</a>
+	
+<a class="filter-link" href="/listing/filter/Lakes">
+	<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-water"></i></div>
+		<p>Lakes</p>
+	</div>
+</a>
+
+<a class="filter-link" class="filter-link" href="/listing/filter/Arctic">
+	<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-snowflake"></i></div>
+		<p>Arctic</p>
+	</div>
+</a>
+	
+<a class="filter-link" href="/listing/filter/Farm">
+	<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-tractor"></i></div>
+		<p>Farms</p>
+	</div>
+</a>
+<a class="filter-link" href="/listing/filter/Historical">
+		<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-landmark"></i></div>
+		<p>Historical places</p>
+	</div>
+</a>
+
+<a class="filter-link" href="/listing/filter/Camping">
+	<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-tent"></i></div>
+		<p>Camping</p>
+	</div>
+</a>
+
+<a class="filter-link" href="Pool">
+	<div class="filter">
+		<div class="filter-icon"><i class="fa-solid fa-person-swimming"></i></div>
+		<p>Amazing pool</p>
+	</div>
+</a>
+	<div class="switch">
+		<div class="form-check form-switch">
+  			<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  			<label class="form-check-label" for="flexSwitchCheckDefault"><b id="sw">Display total before taxes</b></label>
+		</div>
+	</div>
+</div>
+
+<h1 class="index-heading">All listings</h1>
+	<div class="row row-cols-md-3">
+		<% for(let listing of listings){ %>
+			<div class="col card listing-card" >
+			  <a href="/listing/show/<%= listing._id %>"><img src="<%= listing.image.url %>" class="card-img-top index-img" alt="listing-image"></a>
+			  <div class="card-body">
+			    <p class="card-text">
+			    	<%= listing.title %><br>
+			    	&#8377 <%= listing.price.toLocaleString("en-IN") %>/ night <i style="color:blue;display:none;" class="tax-info">&nbsp; +18% GST</i>
+			    </p>
+			  </div>
+			</div>
+		<% } %>
+	</div>
+
+<script>
+	
+  let switchbtn = document.getElementById('flexSwitchCheckDefault');
+  switchbtn.addEventListener('click',()=>{
+    let taxinfo = document.getElementsByClassName("tax-info");
+    for(info of taxinfo){
+    	if(info.style.display!="inline"){
+    		info.style.display="inline";
+    	}
+    	else{
+    		info.style.display="none";
+    	}
+
+   }
+  })
+</script>
+
+
+<!-- ################################################
+
+#HTMLElement.style is for the inline style of an element. It does not take into account CSS whatsoever. This is basically just directly setting or getting a property on the element object.
+
+<div style="color: red;">Hello</div> 
+
+so if u set properties in css of element and u try to access them in js using element.style those will not be visible..those are only set if u use style as inline like above.
+
+-->

@@ -1,0 +1,69 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+
+<h2 class="offset-2 new-h2"><b>Create a New Listing</b></h2>
+
+<div class="row">
+	<form method="post" class="newform offset-2 col-8 needs-validation" action="/listing/newlisting" novalidate enctype="multipart/form-data">
+		<div class="mb-3">
+			  <label for="title" class="form-label">Place Title</label>
+			  <input type="text" class="form-control" id="title" name="title" required>
+			  <div class="invalid-feedback">
+        		Please add a title.
+      		  </div>
+			</div>
+			<div class="mb-3">
+			  <label for="description" class="form-label">Description</label>
+			  <textarea class="form-control" name="description" id="description" placeholder="describe your listing" required></textarea>
+			  <div class="invalid-feedback">
+        		Please add a description.
+      		  </div>
+			</div>
+			<div class="mb-3">
+			  <label for="price" class="form-label">Upload image</label>
+				<input type="file" class="form-control" id="image" name="image">
+				<div class="invalid-feedback">
+        		Please upload an image of your listing.
+      		  </div>
+			</div>
+
+			<div class="mb-3">
+			  <label for="price" class="form-label">Price</label>
+				<input type="number" class="form-control" id="price" name="price" placeholder="Enter price">
+				<div class="invalid-feedback">
+        		Please enter price details.
+      		  </div>
+			</div>
+			<div class="mb-3">
+			<label for="category" class="form-label">Choose category</label>
+			<select class="form-select" name="category" id="category" multiple>
+				    <option value="Tropical">Tropical</option>
+				    <option value="Mountain">Mountain</option>
+				    <option value="Lakes">Lakes</option>
+				    <option value="Arctic">Arctic</option>
+				    <option value="Farm">Farm</option>
+				    <option value="Historic">Historic</option>
+				    <option value="Camping">Camping</option>
+				    <option value="Pool">Pool</option>
+			</select>
+		</div>
+			<div class="row">
+				<div class="mb-3 col-8">
+				  <label for="country" class="form-label">Country</label>
+				 <input type="text" class="form-control" name="country" id="country" placeholder="Enter country" required>
+				 <div class="invalid-feedback">
+        		Please enter country.
+      		  </div>
+				</div>
+				<div class="mb-3 col-4">
+				  <label for="location" class="form-label">Location</label>
+				<input type="text" class="form-control" id="location" name="location" placeholder="Enter your location" required>
+				<div class="invalid-feedback">
+        		Please enter location.
+      		  </div>
+				</div>
+			</div>
+
+			<button class="btn btn-primary"> Add Listing </button>
+	
+	</form>
+</div>

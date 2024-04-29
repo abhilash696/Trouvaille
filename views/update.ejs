@@ -1,0 +1,53 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+
+
+<h2 class="offset-2 new-h2"><b>Update Listing</b></h2>
+
+<div class="row">
+	<form method="post"  class="newform offset-2 col-8 needs-validation" action="/listing/<%= listing._id %>/update?_method=put" novalidate enctype="multipart/form-data">
+		<div class="mb-3">
+			  <label for="title" class="form-label">Place Title</label>
+			  <input type="text" class="form-control" id="title" value="<%= listing.title %>" placeholder="<%= listing.title %> required">
+			  <div class="invalid-feedback">
+        		Please add a title.
+      		  </div>
+		</div>
+			<div class="mb-3">
+			  <label for="description" class="form-label">Description</label>
+			  <textarea class="form-control" name="description" id="description" required  value = "<%= listing.description %>" placeholder="<%= listing.description %>"><%= listing.description %>"</textarea>
+			  <div class="invalid-feedback">
+        		Please add a description.
+      		  </div>
+			</div>
+			<div class="mb-3">
+			  <label for="price" class="form-label">Price</label>
+				<input type="number" class="form-control" id="price"  name="price" value="<%= listing.price %>" placeholder="<%= listing.price %>">
+				<div class="invalid-feedback">
+        		Please enter price details.
+      		  </div>
+			</div>
+			<div class="mb-3">
+			  <label for="price" class="form-label">Upload image</label>
+				<input type="file" class="form-control" id="image" name="image">
+			</div>
+			<div class="row">
+				<div class="mb-3 col-8">
+				  <label for="country" class="form-label">Country</label>
+				 <input type="text" class="form-control" name="country"  id="country" value="<%= listing.country %>" placeholder="<%= listing.country %>">
+				 <div class="invalid-feedback">
+        		Please enter country.
+      		  </div>
+				</div>
+				<div class="mb-3 col-4">
+				  <label for="location" class="form-label">Location</label>
+				<input type="text" class="form-control" id="location"  required name="location" value="<%= listing.location %>" placeholder="<%= listing.location %>">
+				<div class="invalid-feedback">
+        		Please enter a location.
+      		  </div>
+				</div>
+			</div>
+
+			<button class="btn btn-dark"> Update Listing </button>
+	
+	</form>
+</div>

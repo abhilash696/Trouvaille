@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listing"><i class="fa-regular fa-compass"></i> Trouvaille</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listing">Explore</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search" method="post" action="/listing/search">
+          <input class="form-control me-2 searchtab" type="search"  name="title" placeholder="search your destination" aria-label="Search">
+          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass search-tag"></i>Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link airbnb" href="/listing/addform">Airbnb your home</a>
+        <% if(!registeredUser) { %>
+        <a class="nav-link ml-auto" href="/user/login"><b>login</b></a>
+        <a class="nav-link" href="/user/signin"><b>signin</b></a>
+        <% } %>
+        <% if(registeredUser) { %>
+        <a class="nav-link ms-auto" href="/user/logout"><b>logout</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
